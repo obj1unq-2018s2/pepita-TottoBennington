@@ -16,4 +16,7 @@ object roque {
 		alumno.volar(5)
 		alumno.haceLoQueQuieras()
 	}
+		method pupiloActual(){
+		return alumno
+	}
 }

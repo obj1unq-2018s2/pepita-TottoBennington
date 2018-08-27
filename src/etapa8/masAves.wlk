@@ -17,6 +17,9 @@ object pepon {
 		// implementacion Enunciado 4
 		self.volar(1)
 	}
+	method puedeVolar(unosKms){
+		return energia >= 1 + (unosKms * 0.5)
+	}
 }
 
 // implementar el objeto entero, salvo haceLoQueQuieras que lo damos hecho
@@ -39,4 +42,6 @@ object pipa {
 	method haceLoQueQuieras() { }   // queda asi
 	// pregunta: ¿por qué es necesario agregar este método, sin código
 	// porque pipa necesita recreación ¿?, no se me ocurre otra cosa.
+	
+	method puedeVolar(unosKms){return true}
 }

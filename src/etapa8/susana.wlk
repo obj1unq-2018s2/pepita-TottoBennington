@@ -9,6 +9,7 @@
 
 object susana {
 	var alumno
+	var contenta = false
 	method tuPupiloEs(ave) { 
 		alumno = ave
 	}
@@ -19,4 +20,5 @@ object susana {
 	method pupiloActual(){
 		return alumno
 	}
+	method estaContento() = if(self.pupiloActual().puedeVolar(10)) contenta else !contenta
 }

@@ -38,5 +38,5 @@ object pipa {
 	 */
 	method haceLoQueQuieras() { }   // queda asi
 	// pregunta: ¿por qué es necesario agregar este método, sin código
-	// porque pipa necesita recreación ¿?, no se me ocurre otra cosa.
+	// porque sino no puede ser entrenada.
 }

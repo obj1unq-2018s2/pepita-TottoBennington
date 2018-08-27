@@ -1,10 +1,10 @@
 /*
  * Traerse las definiciones de la etapa 4
  */
-// import roque.roque
-// import pepita.pepita
-// import masAves.pepon
-// import masAve.pipa
+import roque.roque
+import pepita.pepita
+import masAves.pepon
+import masAves.pipa
 
 object helicopteroFeo {
   var kmDesdeUltimoService = 0
@@ -13,6 +13,8 @@ object helicopteroFeo {
   method volar(km) { kmDesdeUltimoService += km }
   method requiereService() { return kmDesdeUltimoService >= frecuenciaServiceKm } 
   method registarService() { kmDesdeUltimoService = 0 }
+  
+  // no lo puede entrenar porque no entenderá el comer y haceLoQueQuieras
 }
 
 
@@ -31,4 +33,7 @@ object pepucha {
   }
   method comer(gramos) { cuantoComioDesdeUltimoVuelo += gramos }
   method esBienTratada() { return kmVoladosConPilas >= kmVoladosSinPilas }
+  method haceLoQueQuieras(){}
 }
+
+// tienen que ser polimorficos con el resto de las aves
