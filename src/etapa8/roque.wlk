@@ -6,16 +6,18 @@ import comidas.*
 import masAves.*
 
 object roque {
-	var alumnos = [pepita, pepon] //llenar con las aves a entrenar
+	var alumnos = [] //llenar con las aves a entrenar
 	var contento = true
 	
 	method estaContento() = if(alumnos.size().between(1, 8)) contento else !contento
 
 	method entrenar(){
-		alumnos.volar(10)
-		alumnos.comer(alpiste, 300)
-		alumnos.volar(5)
-		alumnos.haceLoQueQuieras()
+		alumnos.forEach({ alumno =>
+			alumno.volar(10)
+			alumno.comer(alpiste, 300)
+			alumno.volar(5)
+			alumno.haceLoQueQuieras()
+		})
 	}
 	method pupilosActuales(){
 		return alumnos
@@ -23,14 +25,11 @@ object roque {
 
 	method agregarPupilo(unAve){
 		alumnos.add(unAve)
-
 	}
 
 	method dejarPupilo(unAve){
 		alumnos.remove(unAve)
 	}
-	method pupilosCapacesDeVolar(unosKms){
-		alumnos.filter({alumno => alumno.puedeVolar(unosKms)})
-	}
-	method mejorEstudiante() = alumnos.findOrElse({alumno => alumno.puedoVolar(11)},{'No hay alumno que pueda volar mas de 10 kms'})
+	method pupilosCapacesDeVolar(unosKms) = if(alumnos.any({alumno=>alumno.puedeVolar(unosKms)})) alumnos.filter({alumno => alumno.puedeVolar(unosKms)}) else console.println('no hay alumnos capaces de volar: '+ unosKms.toString() + ' kms')
+	method mejorEstudiante() = alumnos.findOrElse({alumno => alumno.puedeVolar(11)},{'No hay alumno que pueda volar mas de 10 kms'})
 }
