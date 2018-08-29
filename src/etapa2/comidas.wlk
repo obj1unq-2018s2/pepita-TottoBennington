@@ -38,9 +38,31 @@ object mijo {
 }
 
 object canelon{
-	var canelonPorGramo = 20
-	method conSalsa(){canelonPorGramo = 25}
-	method conQueso(){canelonPorGramo = 27}
-	method conSalsaYQueso(){canelonPorGramo = 32}
-	method energiaPorGramo(){return canelonPorGramo}
+	var conSalsa = false
+	var conQueso = false
+	
+	method energiaPorGramo(){
+		if(conSalsa && !conQueso){
+			return 25
+		}else if(conQueso && !conSalsa){
+			return 27
+		}else if(conQueso && conSalsa){
+			return 32
+		}else{
+			return 20
+		}
+	}
+	
+	method ponerSalsa(){
+		conSalsa = true
+	}
+	method ponerQueso(){
+		conQueso = true
+	}
+	method sacarSalsa(){
+		conSalsa = false
+	}
+	method sacarQueso(){
+		conQueso = false
+	}
 }

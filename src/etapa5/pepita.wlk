@@ -11,18 +11,18 @@ object pepita {
 	method energia() { return energia }
 	method comer(cosa, gramos) { energia += cosa.energiaPorGramo() * gramos }
 	method visitar(destino){
-		energia += destino.energiaRevitalizadora()
+		energia += destino.energiaRevitalizadora(self)
 	}
 }
 
 object patagonia{
-	method energiaRevitalizadora(){
+	method energiaRevitalizadora(aveARevitalizar){
 		return 30
 	}
 }
 
 object sierrasCordobesas{
-	method energiaRevitalizadora(){
+	method energiaRevitalizadora(aveARevitalizar){
 		return 70
 	}
 }
@@ -30,12 +30,14 @@ object sierrasCordobesas{
 object marDelPlata{
 	var temporadaAlta = false
 	// verificamos si estamos o no en 'alta'
-	method estamosDeTemporadaAlta() = temporadaAlta
+	method esTemporadaAlta() = temporadaAlta
 	// cambiamos de temporada
-	method cambiodDeTemporada() = not temporadaAlta
+	method cambioDeTemporada(){
+		temporadaAlta = !temporadaAlta 
+	}
 	
-	method energiaRevitalizadora(){
-		if(self.estamosDeTemporadaAlta()){
+	method energiaRevitalizadora(aveARevitalizar){
+		if(self.esTemporadaAlta()){
 			return 80
 		}else{
 			return -20
@@ -44,7 +46,7 @@ object marDelPlata{
 }
 
 object noroesteArg{ 
-	method energiaRevitalizadora(){
-		return pepita.energia() * 0.1
+	method energiaRevitalizadora(aveARevitalizar){
+		return aveARevitalizar.energia() * 0.1
 	}
 }

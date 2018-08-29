@@ -7,9 +7,8 @@ import masAves.*
 
 object roque {
 	var alumnos = [] //llenar con las aves a entrenar
-	var contento = true
 	
-	method estaContento() = if(alumnos.size().between(1, 8)) contento else !contento
+	method estaContento() = alumnos.size().between(1, 8)
 
 	method entrenar(){
 		alumnos.forEach({ alumno =>
@@ -30,6 +29,6 @@ object roque {
 	method dejarPupilo(unAve){
 		alumnos.remove(unAve)
 	}
-	method pupilosCapacesDeVolar(unosKms) = if(alumnos.any({alumno=>alumno.puedeVolar(unosKms)})) alumnos.filter({alumno => alumno.puedeVolar(unosKms)}) else console.println('no hay alumnos capaces de volar: '+ unosKms.toString() + ' kms')
+	method pupilosCapacesDeVolar(unosKms) = alumnos.filter({alumno => alumno.puedeVolar(unosKms)})
 	method mejorEstudiante() = alumnos.findOrElse({alumno => alumno.puedeVolar(11)},{'No hay alumno que pueda volar mas de 10 kms'})
 }
